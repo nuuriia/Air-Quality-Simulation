@@ -1,0 +1,152 @@
+<InsightMakerModel>
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <Setting Note="" Version="37" TimeLength="600" TimeStart="0" TimeStep="0.5" TimeUnits="Months" Units="" SolutionAlgorithm="RK4" BackgroundColor="white" Throttle="5" Macros="" SensitivityPrimitives="" SensitivityRuns="50" SensitivityBounds="50, 80, 95, 100" SensitivityShowRuns="false" StyleSheet="{}" id="2">
+      <mxCell parent="1" vertex="1" visible="0">
+        <mxGeometry x="20" y="20" width="80" height="40" as="geometry" />
+      </mxCell>
+    </Setting>
+    <Display name="Default Display" Note="" Type="Time Series" xAxis="Time (%u)" yAxis="" Primitives="113,115,125,114" AutoAddPrimitives="true" ScatterplotOrder="X Primitive, Y Primitive" Image="Display" yAxis2="" Primitives2="" showMarkers="false" showLines="true" showArea="false" legendPosition="Automatic" id="3">
+      <mxCell style="roundImage;image=/builder/images/DisplayFull.png;" parent="1" vertex="1" visible="0">
+        <mxGeometry x="50" y="20" width="64" height="64" as="geometry" />
+      </mxCell>
+    </Display>
+    <Stock name="POBLACIÓ" Note="" InitialValue="1701891" StockMode="Store" Delay="10" Volume="100" NonNegative="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="113" id="113">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="530" y="320" width="100" height="50" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Stock name="VEHICLES EN ÚS" Note="" InitialValue="680000" StockMode="Store" Delay="10" Volume="100" NonNegative="true" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="114" id="114">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="760" y="320" width="140" height="50" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Stock name="QUALITAT AIRE" Note="" InitialValue="0" StockMode="Store" Delay="10" Volume="100" NonNegative="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="115" id="115">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="1015" y="320" width="150" height="50" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Stock name="PROGRAMES" Note="" InitialValue="0" StockMode="Store" Delay="10" Volume="100" NonNegative="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="116" id="116">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="1240" y="320" width="110" height="50" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Flow name="Naixement" Note="" FlowRate="0.00058115267*[POBLACIÓ]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="118" id="118">
+      <mxCell style="flow" parent="1" target="113" edge="1">
+        <mxGeometry x="-100" y="-20" width="100" height="100" as="geometry">
+          <mxPoint x="480" y="70" as="sourcePoint" />
+          <mxPoint x="-100" y="80" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Flow name="Mortalitat" Note="" FlowRate="0.000758*[POBLACIÓ]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="119" id="119">
+      <mxCell style="flow" parent="1" source="113" edge="1">
+        <mxGeometry x="-90" y="10" width="100" height="100" as="geometry">
+          <mxPoint x="-90" y="110" as="sourcePoint" />
+          <mxPoint x="490" y="600" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Flow name="Compra de Vehicles nous" Note="" FlowRate="0.00144*[POBLACIÓ]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="120" id="120">
+      <mxCell style="flow" parent="1" target="114" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint x="830" y="80" as="sourcePoint" />
+          <mxPoint y="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Flow name="Retirada de Vehicles vells" Note="" FlowRate="0.0027778*[VEHICLES EN ÚS]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="121" id="121">
+      <mxCell style="flow" parent="1" source="114" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="830" y="570" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Flow name="Implementació nous programes " Note="" FlowRate="0" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="122" id="122">
+      <mxCell style="flow" parent="1" target="116" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint x="1295" y="80" as="sourcePoint" />
+          <mxPoint y="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Variable name="Emissions CO2 per vehicle per mes" Note="" Equation="0.175" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="123" id="123">
+      <mxCell style="variable" parent="1" vertex="1">
+        <mxGeometry x="900" y="110" width="130" height="60" as="geometry" />
+      </mxCell>
+    </Variable>
+    <Variable name="Emissions CO₂ totals" Note="" Equation="[VEHICLES EN ÚS]*[Emissions CO2 per vehicle per mes]" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="125" id="125">
+      <mxCell style="variable" parent="1" vertex="1">
+        <mxGeometry x="910" y="220" width="120" height="50" as="geometry" />
+      </mxCell>
+    </Variable>
+    <Flow name="Immigració" Note="" FlowRate="4167" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="126" id="126">
+      <mxCell style="flow" parent="1" target="113" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint x="680" y="70" as="sourcePoint" />
+          <mxPoint y="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Flow name="Emigració" Note="" FlowRate="0.00156*[POBLACIÓ]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="127" id="127">
+      <mxCell style="flow" parent="1" source="113" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="650" y="600" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Link name="Link" Note="" BiDirectional="false" oldId="129" id="129">
+      <mxCell style="link" parent="1" source="113" target="120" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Text name="*CO2 en tonelades" LabelPosition="Middle" oldId="131" id="131">
+      <mxCell style="text;fontSize=10;" parent="1" vertex="1">
+        <mxGeometry x="250" y="120" width="105" height="30" as="geometry" />
+      </mxCell>
+    </Text>
+    <Link name="Link" Note="" BiDirectional="false" oldId="133" id="133">
+      <mxCell style="link" parent="1" source="114" target="125" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Link name="Link" Note="" BiDirectional="false" oldId="134" id="134">
+      <mxCell style="link" parent="1" source="123" target="125" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Flow name="Emissions CO2" Note="" FlowRate="[Emissions CO₂ totals]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="135" id="135">
+      <mxCell style="flow" parent="1" target="115" edge="1">
+        <mxGeometry x="31.5" y="-10" width="100" height="100" as="geometry">
+          <mxPoint x="1099.5" y="80" as="sourcePoint" />
+          <mxPoint x="31.5" y="90" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Link name="Link" Note="" BiDirectional="false" oldId="136" id="136">
+      <mxCell style="link" parent="1" source="125" target="135" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Text name="*unitat de temps: mesos" LabelPosition="Middle" oldId="137" id="137">
+      <mxCell style="text;fontSize=10;" parent="1" vertex="1">
+        <mxGeometry x="250" y="90" width="105" height="30" as="geometry" />
+      </mxCell>
+    </Text>
+  </root>
+</InsightMakerModel>
